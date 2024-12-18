@@ -16,3 +16,7 @@ body {
 .grayborder {
   @apply border-2 border-solid border-grayBorder rounded-md;
 }
+
+.primaryBorder {
+  @apply border-2 border-solid border-primary;
+}

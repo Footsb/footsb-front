@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_KR, Oswald } from 'next/font/google';
-import './globals.css';
 import { Gnb } from '@/components/organism';
+import './globals.css';
 
 const notoSansKr = Noto_Sans_KR({
   variable: '--noto-sans_KR-bold',

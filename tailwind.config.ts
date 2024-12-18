@@ -17,6 +17,7 @@ const config: Config = {
         info: '#379AE6',
         primary: '#4CBB17',
         disabled: '#565E6C',
+        pink: '#E8618C',
         grayBorder: '#BCC1CA',
       },
     },
