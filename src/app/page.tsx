@@ -3,12 +3,9 @@ import { TeamList } from '@/components/organism';
 
 const Home = () => {
   return (
-    <main className="relative my-[54px] py-3 px-8">
+    <article>
       <FilterBox />
-      <ul className="flex flex-col gap-2 mt-4">
-        <TeamList />
-        <TeamList />
-        <TeamList />
+      <ul className="flex flex-col gap-4 mt-4">
         <TeamList />
         <TeamList />
         <TeamList />
@@ -22,7 +19,7 @@ const Home = () => {
         <TeamList />
         <TeamList />
       </ul>
-    </main>
+    </article>
   );
 };
 

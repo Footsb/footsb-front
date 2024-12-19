@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MyPage = () => {
-  return <main className="relative my-[54px]">123</main>;
+  return <article>123</article>;
 };
 
 export default MyPage;

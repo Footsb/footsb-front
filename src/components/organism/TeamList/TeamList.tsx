@@ -12,7 +12,7 @@ const TeamList = () => {
 
   return (
     <li className="flex items-center justify-between py-4 px-6 grayborder">
-      <Text value={'한마음 조기 축구회'} type="m_bold" />
+      <Text value={'한마음 조기 축구회'} type="l_bold" />
       <div className="flex gap-4">
         <IconInfo icon="location">
           <Text value={'서울 용산구'} type="s_regular" />
@@ -31,7 +31,8 @@ const TeamList = () => {
       </div>
       <Cta
         value="팀 보러 가기"
-        type="confirm"
+        style="solid"
+        color="primary"
         clickAction={() => {
           router.push('/detail/team/1');
         }}

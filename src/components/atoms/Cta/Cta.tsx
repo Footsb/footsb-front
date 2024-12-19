@@ -1,20 +1,38 @@
+'use client';
+
 import React from 'react';
 
 interface Props {
-  type: string;
+  style: string;
+  color: string;
   value: string;
+  size?: string;
   clickAction: () => void;
 }
 
-const Cta = ({ value, type, clickAction }: Props) => {
+const Cta = ({ value, style, color, size = 'm', clickAction }: Props) => {
   const ctaStyleList: { [key: string]: string } = {
-    confirm: 'bg-primary',
+    solid_primary: 'bg-primary text-white transition-all hover:scale-105',
+    solid_info: 'bg-info text-white transition-all hover:scale-105',
+    outline_primary:
+      'border-2 border-solid border-primary text-primary bg-transparent',
+    outline_info: 'border-2 border-solid border-info text-info bg-transparent',
+    link_primary: 'bg-transparent text-primary',
+    link_info: 'bg-transparent text-info',
+  };
+
+  const ctaSizeList: { [key: string]: string } = {
+    s: 'px-3 py-1 w-fit text-sm',
+    m: 'px-4 py-2 w-[120px] text-base',
+    l: '',
   };
 
   return (
     <button
       onClick={clickAction}
-      className={`${ctaStyleList[type]} px-4 py-2 rounded-md font-bold transition-all hover:scale-105`}
+      className={`${ctaStyleList[`${style}_${color}`]} ${
+        ctaSizeList[size]
+      } rounded-md font-bold`}
     >
       {value}
     </button>
