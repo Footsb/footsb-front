@@ -13,6 +13,14 @@ body {
   font-family: Noto Sans KR, Arial, Helvetica, sans-serif;
 }
 
+.flexBetweenCenter {
+  @apply flex justify-between items-center;
+}
+
 .grayborder {
   @apply border-2 border-solid border-grayBorder rounded-md;
+}
+
+.scrollBarHide::-webkit-scrollbar {
+  display: none;
 }

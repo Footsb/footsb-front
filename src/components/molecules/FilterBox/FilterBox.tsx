@@ -11,7 +11,7 @@ const FilterBox = () => {
   const { location, day } = getQueryList('teamList');
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flexBetweenCenter">
       <div className="flex gap-2">
         {location.map((el, idx) => {
           return <Filter title={el} key={idx} queryKey="location" />;
