@@ -5,9 +5,21 @@ import { usePathname, useRouter } from 'next/navigation';
 import { NAV_MENU_LIST } from '@/constants/list';
 
 const Navigate = () => {
-  const [currentMenu, setCurrentMenu] = useState('HOME');
-  const router = useRouter();
   const path = usePathname();
+
+  const checkCurMenu = () => {
+    if (path.indexOf('detail') >= 0) {
+      if (path.indexOf('team') >= 0) return 'HOME';
+      if (path.indexOf('match') >= 0) return 'MATCH';
+    } else {
+      if (path.indexOf('match') >= 0) return 'MATCH';
+      if (path.indexOf('my') >= 0) return 'MY';
+      return 'HOME';
+    }
+  };
+
+  const [currentMenu, setCurrentMenu] = useState(() => checkCurMenu());
+  const router = useRouter();
 
   const selectMenu = (title: string) => {
     return title === currentMenu
@@ -21,12 +33,8 @@ const Navigate = () => {
   };
 
   useEffect(() => {
-    if (path.indexOf('detail') >= 0) {
-      if (path.indexOf('team') >= 0) {
-        setCurrentMenu('HOME');
-      } else if (path.indexOf('match') >= 0) {
-        setCurrentMenu('MATCH');
-      }
+    if (path) {
+      checkCurMenu();
     }
   }, [path]);
 

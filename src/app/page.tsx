@@ -1,5 +1,5 @@
 import { FilterBox } from '@/components/molecules';
-import { TeamList } from '@/components/organism';
+import { TeamList } from '@/components/organism/listCard';
 
 const Home = () => {
   return (

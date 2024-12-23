@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-
 import { Cta } from '@/components/atoms';
 import { IconInfo, Text } from '@/components/atoms/texts';
 import { Category } from '@/components/atoms/labels';
@@ -33,6 +31,7 @@ const TeamList = () => {
         value="팀 보러 가기"
         style="solid"
         color="primary"
+        size="s"
         clickAction={() => {
           router.push('/detail/team/1');
         }}
