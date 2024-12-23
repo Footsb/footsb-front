@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${notoSansKr.variable} ${oswald.variable}`}>
         <Gnb />
-        <main className="my-[44px] mx-auto py-3 px-8 max-w-[1920px]">
+        <main className="my-[44px] mx-auto py-3 px-8 max-w-[1920px]" id="root">
           {children}
         </main>
       </body>

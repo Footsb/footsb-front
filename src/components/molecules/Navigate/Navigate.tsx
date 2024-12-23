@@ -9,8 +9,6 @@ const Navigate = () => {
   const router = useRouter();
   const path = usePathname();
 
-  console.log(path);
-
   const selectMenu = (title: string) => {
     return title === currentMenu
       ? `border-primary border-b-2 text-primary`

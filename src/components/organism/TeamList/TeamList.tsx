@@ -11,7 +11,7 @@ const TeamList = () => {
   const router = useRouter();
 
   return (
-    <li className="flex items-center justify-between py-4 px-6 grayborder">
+    <li className="flexBetweenCenter py-4 px-6 grayborder">
       <Text value={'한마음 조기 축구회'} type="l_bold" />
       <div className="flex gap-4">
         <IconInfo icon="location">

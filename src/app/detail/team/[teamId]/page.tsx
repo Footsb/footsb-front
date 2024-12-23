@@ -9,14 +9,15 @@ import { IconInfo, Text } from '@/components/atoms/texts';
 import { PlayerCard, FormationCard } from '@/components/atoms/items';
 import { Category } from '@/components/atoms/labels';
 import ModalLayout from '@/components/atoms/Modal';
-
-import defaultImage from '@_assets/images/default.png';
 import { TeamInfoModal } from '@/components/organism/modalContents';
+
+import { PlayerSimpleInfo } from '@/types/team';
+import defaultImage from '@_assets/images/default.png';
 
 const TeamDetail = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [selectFormation, setSelectFormation] = useState([]);
-  const [selectPlayer, setSelectPlayer] = useState([]);
+  const [formationList, setFormationList] = useState<string[]>([]);
+  const [playerList, setPlayerList] = useState<PlayerSimpleInfo[]>([]);
 
   const router = useRouter();
   // const isLogin = localStorage.getItem('footsbToken');
@@ -103,18 +104,18 @@ const TeamDetail = () => {
               clickAction={handleTeamInfo}
             />
           </div>
-          <div className="grid grid-cols-[1fr_1fr_2fr] gap-4">
+          <div className="grid grid-cols-[200px_200px_1fr] gap-4">
             <div className="flex flex-col gap-3">
               <Text value="주 포메이션" type="s_regular" />
-              <FormationCard formation="4-3-3" />
-              <FormationCard formation="4-3-2-1" />
-              <FormationCard formation="5-3-2" />
+              {formationList.map((list) => {
+                return <FormationCard key={list} formation={list} />;
+              })}
             </div>
             <div className="flex flex-col gap-3">
               <Text value="키 플레이어" type="s_regular" />
-              <PlayerCard position="MF" name="김상웅" />
-              <PlayerCard position="MF" name="김상웅" />
-              <PlayerCard position="MF" name="김상웅" />
+              {playerList.map(({ id, name, position }) => {
+                return <PlayerCard key={id} position={position} name={name} />;
+              })}
             </div>
             <div className="flex flex-col gap-3">
               <Text value="최근 매치" type="s_regular" />
@@ -240,7 +241,13 @@ const TeamDetail = () => {
         </div>
       </section>
       <ModalLayout isOpen={isOpenModal} closeAction={handleTeamInfo}>
-        <TeamInfoModal />
+        <TeamInfoModal
+          formationList={formationList}
+          playerList={playerList}
+          setFormationList={setFormationList}
+          setPlayerList={setPlayerList}
+          close={handleTeamInfo}
+        />
       </ModalLayout>
     </article>
   );
