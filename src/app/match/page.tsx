@@ -8,6 +8,15 @@ const Match = () => {
       <FilterBox />
       <ul className="flex flex-col gap-4 mt-4">
         <MatchList />
+        <MatchList />
+        <MatchList />
+        <MatchList />
+        <MatchList />
+        <MatchList />
+        <MatchList />
+        <MatchList />
+        <MatchList />
+        <MatchList />
       </ul>
     </article>
   );

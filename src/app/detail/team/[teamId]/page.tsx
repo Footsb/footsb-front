@@ -104,7 +104,7 @@ const TeamDetail = () => {
               clickAction={handleTeamInfo}
             />
           </div>
-          <div className="grid grid-cols-[200px_200px_1fr] gap-4">
+          <div className="grid grid-cols-[1fr_1fr_3fr] gap-4">
             <div className="flex flex-col gap-3">
               <Text value="주 포메이션" type="s_regular" />
               {formationList.map((list) => {
