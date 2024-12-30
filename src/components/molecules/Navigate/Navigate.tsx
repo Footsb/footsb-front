@@ -9,16 +9,28 @@ const Navigate = () => {
 
   const checkCurMenu = () => {
     if (path.indexOf('detail') >= 0) {
-      if (path.indexOf('team') >= 0) return 'HOME';
-      if (path.indexOf('match') >= 0) return 'MATCH';
+      if (path.indexOf('team') >= 0) {
+        setCurrentMenu('HOME');
+        return;
+      }
+      if (path.indexOf('match') >= 0) {
+        setCurrentMenu('MATCH');
+        return;
+      }
     } else {
-      if (path.indexOf('match') >= 0) return 'MATCH';
-      if (path.indexOf('my') >= 0) return 'MY';
-      return 'HOME';
+      if (path.indexOf('match') >= 0) {
+        setCurrentMenu('MATCH');
+        return;
+      }
+      if (path.indexOf('my') >= 0) {
+        setCurrentMenu('MY');
+        return;
+      }
+      setCurrentMenu('HOME');
     }
   };
 
-  const [currentMenu, setCurrentMenu] = useState(() => checkCurMenu());
+  const [currentMenu, setCurrentMenu] = useState<string>('HOME');
   const router = useRouter();
 
   const selectMenu = (title: string) => {

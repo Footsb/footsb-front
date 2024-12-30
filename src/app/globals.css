@@ -17,6 +17,10 @@ body {
   @apply flex justify-between items-center;
 }
 
+.flexCenter {
+  @apply flex justify-center items-center;
+}
+
 .primaryborder {
   @apply border-2 border-solid border-primary rounded-md;
 }

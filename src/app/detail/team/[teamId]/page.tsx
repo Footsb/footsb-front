@@ -70,7 +70,7 @@ const TeamDetail = () => {
             clickAction={() => {}}
           />
         </div>
-        <div className="flex items-center justify-center py-4 px-8 min-h-32 w-full grayborder text-center">
+        <div className="flexCenter py-4 px-8 min-h-32 w-full grayborder text-center">
           Hello World!
         </div>
         <div className="flex flex-col gap-4">

@@ -16,6 +16,7 @@ const config: Config = {
         danger: '#DE3B40',
         info: '#379AE6',
         primary: '#4CBB17',
+        accent: '#7F55E0',
         disabled: '#565E6C',
         pink: '#E8618C',
         grayBorder: '#BCC1CA',
