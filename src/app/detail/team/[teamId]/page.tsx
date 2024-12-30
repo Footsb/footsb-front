@@ -50,6 +50,15 @@ const TeamDetail = () => {
         </div>
       </div>
       <div className="relative h-[250px] w-full rounded-xl overflow-hidden">
+        <div className="flexCenter flex-col gap-10 p-8 absolute top-0 left-0 w-full h-full z-10 bg-opacity-75 bg-black break-all text-center">
+          <div className="border-2 border-gray-300 w-1/5 rounded-lg" />
+          <Text
+            value="WIN OR NOTHING"
+            type="2xl_bold"
+            extraStyle="leading-tight"
+          />
+          <div className="border-2 border-gray-300 w-1/5 rounded-lg" />
+        </div>
         <Image src={defaultImage} alt="" layout="fill" objectFit="cover" />
       </div>
       <section className="flex flex-col gap-8">

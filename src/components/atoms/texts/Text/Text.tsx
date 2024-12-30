@@ -16,6 +16,7 @@ const Text = ({ value, type, extraStyle = '' }: Props) => {
     l_bold: 'text-xl font-bold',
     xl_regular: 'text-2xl font-medium',
     xl_bold: 'text-2xl font-bold',
+    '2xl_bold': 'text-4xl font-bold',
   };
 
   return (
