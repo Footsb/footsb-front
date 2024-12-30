@@ -11,6 +11,7 @@ const Category = ({ value, type = 'default' }: Props) => {
     footsal: 'bg-[#FDF1F5] text-pink',
     needMember: 'bg-[#F1FDEC] text-primary',
     default: 'bg-[#FEF9EE] text-[#98690C]',
+    info: 'bg-primary text-white',
   };
 
   return (

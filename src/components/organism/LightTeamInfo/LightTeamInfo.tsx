@@ -4,12 +4,12 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 
 import Image from 'next/image';
+import { Cta } from '@/components/atoms';
 import { Text } from '@/components/atoms/texts';
-
-import defaultImage from '@_assets/images/default.png';
 import { Record } from '@/components/atoms/ui';
 import { FormationCard, PlayerCard } from '@/components/atoms/items';
-import { Cta } from '@/components/atoms';
+
+import defaultImage from '@_assets/images/default.png';
 
 interface Props {
   side: string;
