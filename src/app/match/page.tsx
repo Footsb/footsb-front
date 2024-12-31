@@ -1,22 +1,15 @@
 import React from 'react';
 import { FilterBox } from '@/components/molecules';
-import { MatchList } from '@/components/organism/listCard';
+import { MatchCard } from '@/components/molecules/cards';
 
 const Match = () => {
   return (
-    <article>
+    <article className="pb-20">
       <FilterBox />
-      <ul className="flex flex-col gap-4 mt-4">
-        <MatchList />
-        <MatchList />
-        <MatchList />
-        <MatchList />
-        <MatchList />
-        <MatchList />
-        <MatchList />
-        <MatchList />
-        <MatchList />
-        <MatchList />
+      <ul className="flex flex-col gap-4 p-4">
+        {[1, 2, 3].map((el) => {
+          return <MatchCard key={el} />;
+        })}
       </ul>
     </article>
   );

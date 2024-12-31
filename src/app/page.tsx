@@ -1,4 +1,3 @@
-import { Logo } from '@/components/atoms';
 import { Text } from '@/components/atoms/texts';
 import {
   HomeMenuCard,
@@ -9,10 +8,6 @@ import {
 const Home = () => {
   return (
     <article className="pb-20">
-      <div className="flexCenter sticky top-0 py-2 bg-white shadow-sm">
-        <Logo />
-      </div>
-
       <div className="py-4">
         <div className="relative w-fit">
           <Text value="내 팀" type="m_bold" extraStyle="px-4 relative" />
