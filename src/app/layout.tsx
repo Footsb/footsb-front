@@ -28,11 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${notoSansKr.variable} ${oswald.variable}`}>
+      <body
+        className={`${notoSansKr.variable} ${oswald.variable} relative h-screen max-w-[390px] min-w-[280px] mx-auto`}
+      >
+        <main id="root">{children}</main>
         <Gnb />
-        <main className="my-[44px] mx-auto py-3 px-8 max-w-[1920px]" id="root">
-          {children}
-        </main>
       </body>
     </html>
   );

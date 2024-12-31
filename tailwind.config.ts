@@ -19,7 +19,10 @@ const config: Config = {
         accent: '#7F55E0',
         disabled: '#565E6C',
         pink: '#E8618C',
-        grayBorder: '#BCC1CA',
+        gray: '#BCC1CA',
+      },
+      boxShadow: {
+        card: '2px 2px 3px 1px rgba(0,0,0,0.3)',
       },
     },
   },

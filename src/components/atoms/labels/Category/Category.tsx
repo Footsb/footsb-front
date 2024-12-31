@@ -16,7 +16,7 @@ const Category = ({ value, type = 'default' }: Props) => {
 
   return (
     <label
-      className={`${labelColorType[type]} p-2 rounded-2xl text-sm font-bold leading-none`}
+      className={`${labelColorType[type]} p-2 rounded-2xl text-sm font-semibold leading-none`}
     >
       {value}
     </label>

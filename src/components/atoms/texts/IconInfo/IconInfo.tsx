@@ -4,6 +4,7 @@ import {
   IoTimeOutline,
   IoPeopleOutline,
 } from 'react-icons/io5';
+import { TbInfoTriangle } from 'react-icons/tb';
 
 interface Props {
   icon: string;
@@ -15,10 +16,11 @@ const IconInfo = ({ icon, children }: Props) => {
     location: <IoLocationOutline />,
     time: <IoTimeOutline />,
     people: <IoPeopleOutline />,
+    info: <TbInfoTriangle />,
   };
 
   return (
-    <div className="flex gap-1">
+    <div className="flex items-center gap-1">
       {iconComponents[icon]}
       {children}
     </div>

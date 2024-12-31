@@ -3,13 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #323842;
   --foreground: white;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Noto Sans KR, Arial, Helvetica, sans-serif;
 }
 
@@ -25,8 +22,8 @@ body {
   @apply border-2 border-solid border-primary rounded-md;
 }
 
-.grayborder {
-  @apply border-2 border-solid border-grayBorder rounded-md;
+.grayBorder {
+  @apply border-2 border-solid border-gray rounded-md;
 }
 
 .scrollBarHide::-webkit-scrollbar {

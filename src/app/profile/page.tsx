@@ -13,7 +13,7 @@ const MyPage = () => {
   return (
     <article className="flex flex-col gap-8">
       <Text value="마이 페이지" type="xl_bold" />
-      <div className="p-4 grayborder">
+      <div className="p-4 bg-[#242429]">
         <div className="flex justify-between items-start">
           <Text value="기본 정보" type="l_bold" />
           <Cta

@@ -9,9 +9,9 @@ const TeamList = () => {
   const router = useRouter();
 
   return (
-    <li className="flexBetweenCenter py-4 px-6 grayborder">
+    <li className="flexBetweenCenter py-4 px-6 hover:grayborder">
       <Text value={'한마음 조기 축구회'} type="l_bold" />
-      <div className="flex gap-4">
+      {/* <div className="flex gap-4">
         <IconInfo icon="location">
           <Text value={'서울 용산구'} type="s_regular" />
         </IconInfo>
@@ -26,7 +26,7 @@ const TeamList = () => {
         <Category value="축구" type="soccer" />
         <Category value="팀원 모집" type="needMember" />
         <Category value="여성" />
-      </div>
+      </div> */}
       <Cta
         value="팀 보러 가기"
         style="solid"
