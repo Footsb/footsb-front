@@ -8,6 +8,8 @@ interface Props {
 
 const Text = ({ value, type, extraStyle = '' }: Props) => {
   const textStyle: { [key: string]: string } = {
+    xs_regular: 'text-xs font-medium',
+    xs_bold: 'text-xs font-bold',
     s_regular: 'text-sm font-medium',
     s_bold: 'text-sm font-bold',
     m_regular: 'text-base font-medium',
@@ -20,7 +22,9 @@ const Text = ({ value, type, extraStyle = '' }: Props) => {
   };
 
   return (
-    <div className={`${textStyle[type]} ${extraStyle} leading-none`}>
+    <div
+      className={`${textStyle[type]} ${extraStyle} leading-none text-balance`}
+    >
       {value}
     </div>
   );

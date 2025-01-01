@@ -28,12 +28,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" id="root">
       <body
         className={`${notoSansKr.variable} ${oswald.variable} relative h-screen max-w-[390px] min-w-[280px] mx-auto`}
       >
         <SearchBox />
-        <main id="root">{children}</main>
+        <main>{children}</main>
         <Gnb />
       </body>
     </html>

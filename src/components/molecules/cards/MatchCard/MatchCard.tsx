@@ -4,24 +4,21 @@ import { IconInfo, Text } from '@/components/atoms/texts';
 
 const MatchCard = () => {
   return (
-    <li className="flexCenter flex-col gap-4 px-3 py-5 rounded-md  shadow-card">
-      <div className="flex justify-around w-full">
-        <IconInfo icon="time">
-          <Text value={'2024.12.31 18:00'} type="s_regular" />
-        </IconInfo>
-        <IconInfo icon="location">
-          <Text value={'중랑 구립 구장'} type="s_regular" />
-        </IconInfo>
-      </div>
-      <div className="flex items-center gap-5">
+    <li className="flexCenter flex-col gap-4 px-3 py-5 rounded-md">
+      <IconInfo icon="location">
+        <Text value={'중랑 구립 구장'} type="xs_regular" />
+      </IconInfo>
+      <div className="grid grid-cols-3 items-center gap-5">
         <div className="flex flex-col items-center gap-2">
           <GiGriffinShield size={36} cursor={'pointer'} color={'#DE3B40'} />
-          <Text value="한마음 FC" type="l_bold" />
+          <Text value="한마음 FC" type="m_bold" extraStyle="line-clamp-2" />
         </div>
-        <Text value="VS" type="m_bold" />
+        <div className="p-2 rounded-lg border-[1px] border-solid border-slate-200">
+          <Text value="18:00" type="l_bold" />
+        </div>
         <div className="flex flex-col items-center gap-2">
           <GiGriffinShield size={36} cursor={'pointer'} color={'#DE3B40'} />
-          <Text value="한마음 FC" type="l_bold" />
+          <Text value="한마음 FC" type="m_bold" extraStyle="line-clamp-2" />
         </div>
       </div>
     </li>

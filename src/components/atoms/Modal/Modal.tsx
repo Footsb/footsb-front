@@ -26,11 +26,9 @@ const defaultStyle = {
 };
 
 const ModalLayout = ({ isOpen, closeAction, children }: Props) => {
-  if (typeof window !== 'undefined') {
-    Modal.setAppElement('#root');
-  }
-
   useEffect(() => {
+    Modal.setAppElement('#root');
+
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {

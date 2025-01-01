@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { IoHomeOutline } from 'react-icons/io5';
 import { IoIosFootball } from 'react-icons/io';
-import { BiFace } from 'react-icons/bi';
+import { BiFace, BiGroup } from 'react-icons/bi';
 import { Text } from '@/components/atoms/texts';
 
 const Gnb = () => {
@@ -20,6 +20,7 @@ const Gnb = () => {
 
   const currentMenu = () => {
     if (pathName === '/') return 'home';
+    if (pathName.indexOf('/team') >= 0) return 'team';
     if (pathName.indexOf('/match') >= 0) return 'match';
     return 'profile';
   };
@@ -30,6 +31,13 @@ const Gnb = () => {
         size={24}
         cursor={'pointer'}
         color={currentMenu() === 'home' ? '#4CBB17' : 'black'}
+      />
+    ),
+    team: (
+      <BiGroup
+        size={24}
+        cursor={'pointer'}
+        color={currentMenu() === 'team' ? '#4CBB17' : 'black'}
       />
     ),
     match: (
@@ -78,10 +86,17 @@ const NAV_LIST = [
   { id: 1, title: '홈', name: 'home', path: '/' },
   {
     id: 2,
+    title: '팀',
+    name: 'team',
+    path: '/team',
+    border: 'border-l-[1px] border-solid border-gray',
+  },
+  {
+    id: 3,
     title: '매치',
     name: 'match',
     path: '/match',
     border: 'border-x-[1px] border-solid border-gray',
   },
-  { id: 3, title: '프로필', name: 'profile', path: '/profile' },
+  { id: 4, title: '프로필', name: 'profile', path: '/profile' },
 ];
