@@ -2,7 +2,7 @@ import React from 'react';
 
 import { GiGriffinShield } from 'react-icons/gi';
 import { IconInfo, Text } from '@/components/atoms/texts';
-import { Category } from '@/components/atoms/labels';
+import { Category } from '@/components/atoms/tags';
 
 const HomeTeamCard = () => {
   return (

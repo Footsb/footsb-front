@@ -12,7 +12,7 @@ const Filter = ({ title, queryKey }: Props) => {
   const { deleteQuery } = useHandleQuery();
 
   return (
-    <label className="flex gap-1 items-center p-2 border-[#EEEDF2] border-2 border-solid rounded-lg text-sm leading-none">
+    <div className="flex gap-1 items-center p-2 border-[#EEEDF2] border-2 border-solid rounded-lg text-sm leading-none">
       {title}
       <BsXCircleFill
         size={12}
@@ -21,7 +21,7 @@ const Filter = ({ title, queryKey }: Props) => {
           deleteQuery(queryKey, title);
         }}
       />
-    </label>
+    </div>
   );
 };
 

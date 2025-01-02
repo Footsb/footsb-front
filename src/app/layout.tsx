@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" id="root">
       <body
-        className={`${notoSansKr.variable} ${oswald.variable} relative h-screen max-w-[390px] min-w-[280px] mx-auto`}
+        className={`${notoSansKr.variable} ${oswald.variable} relative max-w-[390px] min-w-[280px] mx-auto`}
       >
         <SearchBox />
         <main>{children}</main>

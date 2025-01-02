@@ -7,7 +7,7 @@ import { Cta } from '@/components/atoms';
 import { Text } from '@/components/atoms/texts';
 
 import defaultImage from '@_assets/images/default.png';
-import { Category } from '@/components/atoms/labels';
+import { Category } from '@/components/atoms/tags';
 
 const MyPage = () => {
   return (

@@ -44,8 +44,8 @@ const Cta = ({
   };
 
   const ctaSizeList: { [key: string]: string } = {
-    s: 'px-3 py-2 w-fit text-sm',
-    m: 'px-4 py-2 w-[120px] text-base',
+    s: 'px-2 py-1 w-fit text-sm',
+    m: 'px-3 py-2 w-[120px] text-base',
     l: '',
   };
 

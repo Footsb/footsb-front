@@ -1,41 +1,43 @@
 'use client';
 
-import { Cta } from '@/components/atoms';
-import { IconInfo, Text } from '@/components/atoms/texts';
-import { Category } from '@/components/atoms/labels';
 import { useRouter } from 'next/navigation';
+
+import { GiGriffinShield } from 'react-icons/gi';
+import { IconInfo, Text } from '@/components/atoms/texts';
+import { Category } from '@/components/atoms/tags';
 
 const TeamList = () => {
   const router = useRouter();
 
   return (
-    <li className="flexBetweenCenter py-4 px-6 hover:grayborder">
-      <Text value={'한마음 조기 축구회'} type="l_bold" />
-      {/* <div className="flex gap-4">
-        <IconInfo icon="location">
-          <Text value={'서울 용산구'} type="s_regular" />
-        </IconInfo>
-        <IconInfo icon="time">
-          <Text value={'토,일 8:00'} type="s_regular" />
-        </IconInfo>
-        <IconInfo icon="people">
-          <Text value={'23/30'} type="s_regular" />
-        </IconInfo>
+    <li
+      className="grid grid-cols-[64px_1fr] items-center gap-3 py-5 border-b-[1px] border-solid border-slate-200"
+      onClick={() => {
+        router.push('/detail/team/1');
+      }}
+    >
+      <div className="flexCenter p-2 rounded-md border-2 border-slate-200 border-dashed">
+        <GiGriffinShield size={48} cursor={'pointer'} color={'#DE3B40'} />
       </div>
-      <div className="flex gap-2">
-        <Category value="축구" type="soccer" />
-        <Category value="팀원 모집" type="needMember" />
-        <Category value="여성" />
-      </div> */}
-      <Cta
-        value="팀 보러 가기"
-        style="solid"
-        color="primary"
-        size="s"
-        clickAction={() => {
-          router.push('/detail/team/1');
-        }}
-      />
+      <div className="flex flex-col gap-2 w-full">
+        <Text value={'한마음 FC'} type="m_bold" />
+        <div className="flex gap-2">
+          <Category value="축구" />
+          <Category value="모집 중" />
+          <Category value="남여 무관" />
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <IconInfo icon="location">
+            <Text value={'서울 용산구'} type="xs_regular" />
+          </IconInfo>
+          <IconInfo icon="time">
+            <Text value={'토,일 8:00'} type="xs_regular" />
+          </IconInfo>
+          <IconInfo icon="people">
+            <Text value={'23/30'} type="xs_regular" />
+          </IconInfo>
+        </div>
+      </div>
     </li>
   );
 };

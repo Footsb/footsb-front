@@ -4,7 +4,7 @@ import React from 'react';
 import useHandleQuery from '@/hooks/useQuery';
 
 import { BiFilter } from 'react-icons/bi';
-import { Filter } from '@/components/atoms/labels';
+import { Filter } from '@/components/atoms/tags';
 
 const FilterBox = () => {
   const { getQueryList } = useHandleQuery();

@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Cta } from '@/components/atoms';
 import { IconInfo, Text } from '@/components/atoms/texts';
 import { PlayerCard, FormationCard } from '@/components/atoms/items';
-import { Category } from '@/components/atoms/labels';
+import { Category } from '@/components/atoms/tags';
 import ModalLayout from '@/components/atoms/Modal';
 import { TeamInfoModal } from '@/components/organism/modalContents';
 
