@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { TeamList } from '@/components/organism/listCard';
+
 import { Cta } from '@/components/atoms';
 import ModalLayout from '@/components/atoms/Modal';
+import { TeamList } from '@/components/organism/listCard';
 import { TeamSearchFilter } from '@/components/organism/modalContents';
 
 const Team = () => {

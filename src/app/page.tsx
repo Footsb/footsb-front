@@ -1,10 +1,10 @@
 'use client';
 
-import { Fragment } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Cta } from '@/components/atoms';
 import { Text } from '@/components/atoms/texts';
+import { SubTitleBox } from '@/components/molecules';
 import {
   HomeMenuCard,
   HomeTeamCard,
@@ -16,11 +16,8 @@ const Home = () => {
 
   return (
     <article className="pb-24">
-      <div className="py-4">
-        <div className="relative w-fit">
-          <Text value="내 팀" type="m_bold" extraStyle="px-4 relative" />
-          <div className="absolute right-2 -bottom-[3px] pl-4 w-1/2 h-3 bg-lime-300 -skew-y-6 -z-10" />
-        </div>
+      <div className="py-4 pl-4">
+        <SubTitleBox title="내 팀" />
         <ul className="p-4 w-full overflow-x-scroll scrollBarHide">
           <div className="flex gap-4 pr-4 w-max">
             {[1, 2, 3].map((el) => {
@@ -37,16 +34,9 @@ const Home = () => {
         </ul>
       </div>
 
-      <div className="py-4">
+      <div className="p-4">
         <div className="flexBetweenCenter">
-          <div className="relative w-fit">
-            <Text
-              value="오늘의 매치"
-              type="m_bold"
-              extraStyle="px-4 relative"
-            />
-            <div className="absolute right-2 -bottom-[3px] pl-4 w-1/2 h-3 bg-orange-300 -skew-y-6 -z-10" />
-          </div>
+          <SubTitleBox title="오늘의 매치" />
           <Cta
             style="link"
             color="primary"
@@ -58,24 +48,15 @@ const Home = () => {
           />
         </div>
         <ul className="py-4">
-          <div className="mx-auto my-3 border-t-[1px] border-solid border-slate-200 w-1/5" />
           {[1, 2, 3].map((el) => {
-            return (
-              <Fragment key={el}>
-                <MatchCard />
-                <div className="mx-auto my-3 border-t-[1px] border-solid border-slate-200 w-1/5" />
-              </Fragment>
-            );
+            return <MatchCard key={el} />;
           })}
         </ul>
       </div>
 
-      <div className="py-4">
-        <div className="relative w-fit">
-          <Text value="팀 찾기" type="m_bold" extraStyle="px-4 relative" />
-          <div className="absolute right-2 -bottom-[3px] pl-4 w-1/2 h-3 bg-teal-200 -skew-y-6 -z-10" />
-        </div>
-        <ul className="flex justify-center gap-4 p-4 flex-wrap">
+      <div className="p-4">
+        <SubTitleBox title="팀 찾기" />
+        <ul className="flex justify-center gap-4 py-4 flex-wrap">
           {[1, 2, 3, 4].map((el) => {
             return <HomeMenuCard key={el} icon="location" />;
           })}

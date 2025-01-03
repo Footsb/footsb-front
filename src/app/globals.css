@@ -4,6 +4,13 @@
 
 :root {
   --foreground: white;
+
+  --toastify-color-warning: rgba(0, 0, 0, 0.7);
+  --toastify-toast-width: 100%;
+  --toastify-toast-background: #000;
+  --toastify-toast-min-height: 50px;
+  --toastify-toast-max-height: 800px;
+  --toastify-z-index: 9999;
 }
 
 body {
@@ -36,11 +43,11 @@ body {
 }
 
 .primaryborder {
-  @apply border-2 border-solid border-primary rounded-md;
+  @apply border-[1px] border-solid border-primary rounded-md;
 }
 
 .grayBorder {
-  @apply border-2 border-solid border-gray rounded-md;
+  @apply border-[1px] border-solid border-gray rounded-md;
 }
 
 .scrollBarHide::-webkit-scrollbar {

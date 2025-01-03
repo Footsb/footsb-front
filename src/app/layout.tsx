@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_KR, Oswald } from 'next/font/google';
-import { Gnb } from '@/components/organism';
-import './globals.css';
+import { ToastContainer } from 'react-toastify';
+
 import { SearchBox } from '@/components/molecules';
+import { Gnb } from '@/components/organism';
+
+import './globals.css';
 
 const notoSansKr = Noto_Sans_KR({
   variable: '--noto-sans_KR-bold',
@@ -35,6 +38,17 @@ export default function RootLayout({
         <SearchBox />
         <main>{children}</main>
         <Gnb />
+        <ToastContainer
+          position="bottom-center"
+          autoClose={2000}
+          hideProgressBar={true}
+          closeButton={true}
+          rtl={false}
+          draggable
+          stacked
+          closeOnClick
+          theme="light"
+        />
       </body>
     </html>
   );

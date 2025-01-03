@@ -18,14 +18,14 @@ const PlayerCard = ({
   const checkSelectStyle = () => {
     return isSelected
       ? `primaryborder transition-all`
-      : `grayborder transition-all`;
+      : `grayBorder transition-all`;
   };
 
   return (
     <div
       className={`${checkSelectStyle()} ${
         type === 'list' ? 'cursor-default' : 'cursor-pointer'
-      } flexBetweenCenter p-3`}
+      } flexBetweenCenter p-2`}
       onClick={onSelect}
     >
       <Text value={position} type="s_regular" />

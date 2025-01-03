@@ -6,7 +6,7 @@ const Match = () => {
   return (
     <article className="pb-24">
       <FilterBox />
-      <ul className="flex flex-col gap-4 p-4">
+      <ul className="flex flex-col p-4">
         {[1, 2, 3].map((el) => {
           return <MatchCard key={el} />;
         })}

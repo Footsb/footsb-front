@@ -12,7 +12,7 @@ interface Props {
 const defaultStyle = {
   overlay: {
     backgroundColor: 'rgba(0,0,0,0.4)',
-    zIndex: 9999,
+    zIndex: 1000,
   },
   content: {
     top: '50%',

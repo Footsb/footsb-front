@@ -15,7 +15,7 @@ const SearchBox = () => {
   if (pathName.indexOf('sign') >= 0) return;
 
   return (
-    <div className="flexBetweenCenter sticky top-0 p-2 h-[44px] bg-white shadow-sm z-10 overflow-hidden">
+    <div className="flexBetweenCenter sticky top-0 p-2 h-[44px] bg-white shadow-sm z-50 overflow-hidden">
       <Logo />
 
       <div
@@ -44,30 +44,6 @@ const SearchBox = () => {
           placeholder="팀 검색"
         />
       </div>
-      {/* <div className="flex items-center gap-2">
-        {isFocusSearch ? (
-          <RiSearchLine
-            color="gray"
-            onClick={() => {
-              setIsFocusSearch((prev) => !prev);
-            }}
-          />
-        ) : (
-          <>
-            <input
-              className="px-2 py-1 w-[150px] text-sm leading-none rounded-lg border-[1px] border-solid border-gray focus:outline-none"
-              type="text"
-              placeholder="팀 검색"
-            />
-            <RiCloseCircleLine
-              color="gray"
-              onClick={() => {
-                setIsFocusSearch((prev) => !prev);
-              }}
-            />
-          </>
-        )}
-      </div> */}
     </div>
   );
 };

@@ -24,7 +24,7 @@ const Cta = ({
     solid_danger: 'bg-danger text-white transition-all hover:scale-105',
     solid_accent: 'bg-accent text-white transition-all hover:scale-105',
     solid_info: 'bg-info text-white transition-all hover:scale-105',
-    solid_default: 'bg-white text-black transition-all hover:scale-105',
+    solid_default: 'bg-black text-white transition-all hover:scale-105',
 
     outline_primary:
       'border-2 border-solid border-primary text-primary bg-transparent',
@@ -34,13 +34,13 @@ const Cta = ({
       'border-2 border-solid border-accent text-accent bg-transparent',
     outline_info: 'border-2 border-solid border-info text-info bg-transparent',
     outline_default:
-      'border-2 border-solid border-white text-white bg-transparent',
+      'border-2 border-solid border-black text-black bg-transparent',
 
     link_primary: 'bg-transparent text-primary',
     link_danger: 'bg-transparent text-danger',
     link_accent: 'bg-transparent text-accent',
     link_info: 'bg-transparent text-info',
-    link_default: 'bg-transparent text-white',
+    link_default: 'bg-transparent text-black',
   };
 
   const ctaSizeList: { [key: string]: string } = {

@@ -1,4 +1,4 @@
-import { Cta } from '@/components/atoms';
+import { Cta, Divider } from '@/components/atoms';
 import { FilterButton, RadioButton } from '@/components/atoms/items';
 import { Text } from '@/components/atoms/texts';
 import { useState } from 'react';
@@ -31,8 +31,8 @@ const TeamSearchFilter = ({ close }: Props) => {
   };
 
   return (
-    <div className="flex flex-col gap-4 max-h-[350px] overflow-scroll">
-      <div className="pb-4 border-b-[1px] border-solid border-slate-200">
+    <div className="flex flex-col gap-2 max-h-[350px] overflow-scroll">
+      <div>
         <Text value="지역" type="m_regular" />
         <div className="flex gap-2 mt-4">
           <div
@@ -63,7 +63,8 @@ const TeamSearchFilter = ({ close }: Props) => {
           </div>
         </div>
       </div>
-      <div className="pb-4 border-b-[1px] border-solid border-slate-200">
+      <Divider />
+      <div>
         <Text value="요일" type="m_regular" />
         <div className="flex flex-wrap gap-4 mt-4">
           {DAY_LIST.map((day) => {
@@ -79,7 +80,8 @@ const TeamSearchFilter = ({ close }: Props) => {
           })}
         </div>
       </div>
-      <div className="pb-4 border-b-[1px] border-solid border-slate-200">
+      <Divider />
+      <div>
         <Text value="시간" type="m_regular" />
         <div className="flex flex-wrap gap-4 mt-4">
           {TIME_LIST.map((el) => {
@@ -95,7 +97,8 @@ const TeamSearchFilter = ({ close }: Props) => {
           })}
         </div>
       </div>
-      <div className="pb-4 border-b-[1px] border-solid border-slate-200">
+      <Divider />
+      <div>
         <Text value="기타" type="m_regular" />
         {ETC_FILTER_LIST.map((list) => {
           return (
@@ -115,7 +118,8 @@ const TeamSearchFilter = ({ close }: Props) => {
           );
         })}
       </div>
-      <div className="flexBetweenCenter">
+
+      <div className="flexBetweenCenter mt-4">
         <Cta
           value="취소"
           style="link"

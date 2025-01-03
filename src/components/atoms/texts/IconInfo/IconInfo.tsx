@@ -4,7 +4,7 @@ import {
   IoTimeOutline,
   IoPeopleOutline,
 } from 'react-icons/io5';
-import { TbInfoTriangle } from 'react-icons/tb';
+import { TbInfoTriangle, TbPlayFootball } from 'react-icons/tb';
 
 interface Props {
   icon: string;
@@ -16,6 +16,7 @@ const IconInfo = ({ icon, children }: Props) => {
     location: <IoLocationOutline />,
     time: <IoTimeOutline />,
     people: <IoPeopleOutline />,
+    player: <TbPlayFootball />,
     info: <TbInfoTriangle />,
   };
 

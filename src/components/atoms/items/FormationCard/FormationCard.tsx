@@ -16,14 +16,14 @@ const FormationCard = ({
   const checkSelectStyle = () => {
     return isSelected
       ? `primaryborder transition-all`
-      : `grayborder transition-all`;
+      : `grayBorder transition-all`;
   };
 
   return (
     <div
       className={`${checkSelectStyle()} ${
         type === 'list' ? 'cursor-default' : 'cursor-pointer'
-      } p-3 text-center `}
+      } p-2 text-center `}
       onClick={() => onSelect(formation)}
     >
       <Text value={formation} type="m_regular" />
