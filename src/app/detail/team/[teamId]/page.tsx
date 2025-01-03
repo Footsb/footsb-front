@@ -170,7 +170,7 @@ const TeamDetail = () => {
           </div>
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-4">
           <SubTitleBox title="다가올 매치" />
           <MatchCard />
           <MatchCard />

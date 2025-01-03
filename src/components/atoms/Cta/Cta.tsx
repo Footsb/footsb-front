@@ -20,11 +20,16 @@ const Cta = ({
   clickAction,
 }: Props) => {
   const ctaStyleList: { [key: string]: string } = {
-    solid_primary: 'bg-primary text-white transition-all hover:scale-105',
-    solid_danger: 'bg-danger text-white transition-all hover:scale-105',
-    solid_accent: 'bg-accent text-white transition-all hover:scale-105',
-    solid_info: 'bg-info text-white transition-all hover:scale-105',
-    solid_default: 'bg-black text-white transition-all hover:scale-105',
+    solid_primary:
+      'border-2 border-solid border-primary bg-primary text-white transition-all hover:scale-105',
+    solid_danger:
+      'border-2 border-solid border-danger bg-danger text-white transition-all hover:scale-105',
+    solid_accent:
+      'border-2 border-solid border-accent bg-accent text-white transition-all hover:scale-105',
+    solid_info:
+      'border-2 border-solid border-info bg-info text-white transition-all hover:scale-105',
+    solid_default:
+      'border-2 border-solid border-black bg-black text-white transition-all hover:scale-105',
 
     outline_primary:
       'border-2 border-solid border-primary text-primary bg-transparent',

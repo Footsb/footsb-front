@@ -3,13 +3,10 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
-import Image from 'next/image';
 import { Cta } from '@/components/atoms';
 import { Text } from '@/components/atoms/texts';
 import { Record } from '@/components/atoms/ui';
 import { FormationCard, PlayerCard } from '@/components/atoms/items';
-
-import defaultImage from '@_assets/images/default.png';
 
 interface Props {
   side: string;
@@ -20,16 +17,7 @@ const LightTeamInfo = ({ side }: Props) => {
 
   return (
     <div className="flex flex-col gap-6">
-      <Text
-        value={side}
-        type="l_bold"
-        extraStyle={`text-${
-          side === 'HOME' ? 'primary' : 'danger'
-        } text-center`}
-      />
-      <div className="relative h-[250px] rounded-xl overflow-hidden">
-        <Image src={defaultImage} alt="" layout="fill" objectFit="cover" />
-      </div>
+      <div>{side}</div>
       <Text
         value={'한마음 조기 축구회'}
         type="xl_bold"

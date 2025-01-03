@@ -1,11 +1,19 @@
 import { GiGriffinShield } from 'react-icons/gi';
 import { Divider } from '@/components/atoms';
 import { IconInfo, Text } from '@/components/atoms/texts';
+import { useRouter } from 'next/navigation';
 
 const MatchCard = () => {
+  const router = useRouter();
+
   return (
     <>
-      <li className="flexCenter flex-col gap-1 px-3 py-5 rounded-md">
+      <li
+        className="flexCenter flex-col gap-1 px-3 py-5 rounded-md"
+        onClick={() => {
+          router.push('/detail/match/1');
+        }}
+      >
         <IconInfo icon="location">
           <Text value={'중랑 구립 구장'} type="xs_regular" />
         </IconInfo>
