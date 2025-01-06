@@ -1,12 +1,21 @@
-import React from 'react';
+'use client';
+
+import { useRouter } from 'next/navigation';
 
 import { GiGriffinShield } from 'react-icons/gi';
 import { IconInfo, Text } from '@/components/atoms/texts';
 import { Category } from '@/components/atoms/tags';
 
-const HomeTeamCard = () => {
+const TeamCard = () => {
+  const router = useRouter();
+
   return (
-    <li className="flex flex-col justify-between p-3 min-w-[260px] w-full h-[140px] rounded-lg shadow-card">
+    <li
+      className="flex flex-col justify-between p-3 min-w-[260px] w-full h-[140px] rounded-lg shadow-card"
+      onClick={() => {
+        router.push('/detail/team/1');
+      }}
+    >
       <div className="flexBetweenCenter">
         <div className="flex items-center gap-2">
           <GiGriffinShield size={30} cursor={'pointer'} color={'#DE3B40'} />
@@ -31,4 +40,4 @@ const HomeTeamCard = () => {
   );
 };
 
-export default HomeTeamCard;
+export default TeamCard;

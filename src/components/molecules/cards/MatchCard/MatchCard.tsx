@@ -1,3 +1,5 @@
+'use client';
+
 import { GiGriffinShield } from 'react-icons/gi';
 import { Divider } from '@/components/atoms';
 import { IconInfo, Text } from '@/components/atoms/texts';

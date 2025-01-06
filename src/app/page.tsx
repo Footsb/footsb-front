@@ -7,7 +7,7 @@ import { Text } from '@/components/atoms/texts';
 import { SubTitleBox } from '@/components/molecules';
 import {
   HomeMenuCard,
-  HomeTeamCard,
+  TeamCard,
   MatchCard,
 } from '@/components/molecules/cards';
 
@@ -16,24 +16,6 @@ const Home = () => {
 
   return (
     <article className="pb-24">
-      <div className="py-4 pl-4">
-        <SubTitleBox title="내 팀" />
-        <ul className="p-4 w-full overflow-x-scroll scrollBarHide">
-          <div className="flex gap-4 pr-4 w-max">
-            {[1, 2, 3].map((el) => {
-              return <HomeTeamCard key={el} />;
-            })}
-            <li className="flexCenter p-3 min-w-[240px] w-full h-[140px] rounded-md border-2 border-dashed border-gray">
-              <Text
-                value="팀 등록하기"
-                type="m_bold"
-                extraStyle="text-primary"
-              />
-            </li>
-          </div>
-        </ul>
-      </div>
-
       <div className="p-4">
         <div className="flexBetweenCenter">
           <SubTitleBox title="오늘의 매치" />
@@ -47,7 +29,7 @@ const Home = () => {
             }}
           />
         </div>
-        <ul className="py-4">
+        <ul>
           {[1, 2, 3].map((el) => {
             return <MatchCard key={el} />;
           })}
@@ -60,6 +42,24 @@ const Home = () => {
           {[1, 2, 3, 4].map((el) => {
             return <HomeMenuCard key={el} icon="location" />;
           })}
+        </ul>
+      </div>
+
+      <div className="py-4 pl-4">
+        <SubTitleBox title="내 팀" />
+        <ul className="p-4 w-full overflow-x-scroll scrollBarHide">
+          <div className="flex gap-4 pr-4 w-max">
+            {[1, 2, 3].map((el) => {
+              return <TeamCard key={el} />;
+            })}
+            <li className="flexCenter p-3 min-w-[240px] w-full h-[140px] rounded-md border-2 border-dashed border-gray">
+              <Text
+                value="팀 등록하기"
+                type="m_bold"
+                extraStyle="text-primary"
+              />
+            </li>
+          </div>
         </ul>
       </div>
     </article>
