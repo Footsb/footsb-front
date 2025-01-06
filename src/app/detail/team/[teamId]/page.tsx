@@ -43,7 +43,7 @@ const TeamDetail = () => {
         />
         <IoMdSettings size={18} />
       </div>
-      <div className="relative h-[200px] w-full overflow-hidden">
+      <div className="relative h-[200px] w-full">
         <div className="flexCenter flex-col gap-5 p-8 absolute top-0 left-0 w-full h-full z-10 bg-opacity-75 bg-black break-all text-center">
           <Divider />
           <Text

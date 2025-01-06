@@ -1,4 +1,4 @@
-import React from 'react';
+import { Text } from '@/components/atoms/texts';
 
 interface Props {
   type: string;
@@ -6,12 +6,22 @@ interface Props {
 
 const Record = ({ type }: Props) => {
   const recordStyle: { [key: string]: string } = {
-    win: 'bg-primary',
-    draw: 'bg-gray-400',
-    lose: 'bg-danger',
+    win: 'text-primary',
+    draw: 'text-gray',
+    lose: 'text-danger',
   };
 
-  return <div className={`${recordStyle[type]} rounded-full w-4 h-4`} />;
+  const recordeTitle: { [key: string]: string } = {
+    win: '승',
+    draw: '무',
+    lose: '패',
+  };
+
+  return (
+    <div className={`${recordStyle[type]}`}>
+      <Text value={recordeTitle[type]} type="m_bold" />
+    </div>
+  );
 };
 
 export default Record;

@@ -2,11 +2,15 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 import { Cta } from '@/components/atoms';
 import { Text } from '@/components/atoms/texts';
 import { Record } from '@/components/atoms/ui';
 import { FormationCard, PlayerCard } from '@/components/atoms/items';
+
+import defaultImage from '@_assets/images/default.png';
+import { GiGriffinShield } from 'react-icons/gi';
 
 interface Props {
   side: string;
@@ -16,23 +20,24 @@ const LightTeamInfo = ({ side }: Props) => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col gap-6">
-      <div>{side}</div>
-      <Text
-        value={'한마음 조기 축구회'}
-        type="xl_bold"
-        extraStyle={'text-center'}
-      />
-      <div className="flex items-center gap-3">
-        <Text value={'실력 : 하하'} type="s_regular" />
-        <Text value={'매너도 : 120점'} type="s_regular" />
-        <div className="flex items-center gap-2">
-          <Text value={'최근 전적 :'} type="s_regular" />
-          {TEST_RECORD.map((el, idx) => {
-            return <Record type={el} key={idx} />;
-          })}
+    <div className="flex flex-col gap-4 px-3">
+      <div className="relative h-[200px] w-full rounded-lg overflow-hidden">
+        <div className="flexCenter flex-col p-8 absolute top-0 left-0 w-full h-full z-10 bg-opacity-40 bg-black break-all text-center">
+          <div className="flexCenter p-1 mb-2 rounded-lg bg-white">
+            <GiGriffinShield size={36} cursor={'pointer'} color={'#DE3B40'} />
+          </div>
+          <Text value={'한마음 FC'} type="xl_bold" extraStyle={'text-white'} />
         </div>
+        <Image src={defaultImage} alt="" layout="fill" objectFit="cover" />
       </div>
+
+      <div className="flex items-center gap-2">
+        <Text value="최근 전적 : " type="s_regular" />
+        {TEST_RECORD.map((el, idx) => {
+          return <Record type={el} key={idx} />;
+        })}
+      </div>
+
       <div className="flex gap-2 w-full">
         <div className="flex flex-col gap-3 w-full">
           <Text value="주 포메이션" type="s_regular" />
