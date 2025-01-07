@@ -14,7 +14,7 @@ import { PlayerCard, FormationCard } from '@/components/atoms/items';
 import { Category } from '@/components/atoms/tags';
 import ModalLayout from '@/components/atoms/Modal';
 import { SubTitleBox } from '@/components/molecules';
-import { MatchCard } from '@/components/molecules/cards';
+import { MatchCard, MatchResultCard } from '@/components/molecules/cards';
 import { TeamInfoModal } from '@/components/organism/modalContents';
 
 import { PlayerSimpleInfo } from '@/types/team';
@@ -109,7 +109,7 @@ const TeamDetail = () => {
         </div>
         <Divider />
 
-        <div>
+        <div className="mb-5">
           <div className="flexBetweenCenter mb-5">
             <SubTitleBox title="팀 정보" />
             <HiPencilAlt size={20} onClick={handleTeamInfo} />
@@ -164,11 +164,16 @@ const TeamDetail = () => {
           </div>
           <div className="flex flex-col mt-5">
             <Text value="최근 경기" type="s_regular" />
-            <MatchCard />
-            <MatchCard />
-            <MatchCard />
+            <ul className="py-4 w-full overflow-x-scroll scrollBarHide">
+              <div className="flex gap-4 pr-4 w-max">
+                {['win', 'draw', 'lose'].map((el) => {
+                  return <MatchResultCard key={el} result={el} />;
+                })}
+              </div>
+            </ul>
           </div>
         </div>
+        <Divider />
 
         <div className="flex flex-col mt-4">
           <SubTitleBox title="다가올 매치" />

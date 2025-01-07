@@ -11,7 +11,7 @@ const MatchCard = () => {
   return (
     <>
       <li
-        className="flexCenter flex-col gap-1 px-3 py-5 rounded-md"
+        className="flexCenter flex-col gap-1 px-3 py-5"
         onClick={() => {
           router.push('/detail/match/1');
         }}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { Logo } from '@/components/atoms';
@@ -8,11 +8,16 @@ import { RiSearchLine, RiCloseCircleLine } from 'react-icons/ri';
 
 const SearchBox = () => {
   const [isFocusSearch, setIsFocusSearch] = useState(false);
-
+  const [isShow, setIsShow] = useState(true);
   const pathName = usePathname();
-  // const router = useRouter();
 
-  if (pathName.indexOf('sign') >= 0) return;
+  useEffect(() => {
+    if (pathName.indexOf('sign') >= 0) {
+      setIsShow(false);
+    }
+  }, [pathName]);
+
+  if (!isShow) return;
 
   return (
     <div className="flexBetweenCenter sticky top-0 p-2 h-[44px] bg-white shadow-sm z-50 overflow-hidden">
