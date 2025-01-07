@@ -1,15 +1,14 @@
+import { useState } from 'react';
 import { Cta, Divider } from '@/components/atoms';
+import DropDown from '@/components/atoms/DropDown';
 import { FilterButton, RadioButton } from '@/components/atoms/items';
 import { Text } from '@/components/atoms/texts';
-import { useState } from 'react';
-import { TbCaretDownFilled } from 'react-icons/tb';
 
 interface Props {
   close: () => void;
 }
 
 const TeamSearchFilter = ({ close }: Props) => {
-  const [clickDrop, setClickDrop] = useState(false);
   const [selectFilterList, setSelectFilterList] = useState<{
     [key: string]: string[];
   }>({
@@ -35,32 +34,8 @@ const TeamSearchFilter = ({ close }: Props) => {
       <div>
         <Text value="지역" type="m_regular" />
         <div className="flex gap-2 mt-4">
-          <div
-            className="flexBetweenCenter w-24 py-1 px-2 border-[1px] border-solid border-gray rounded-sm"
-            onClick={() => setClickDrop((prev) => !prev)}
-          >
-            <Text value="지역" type="s_regular" />
-            <div
-              className={`${
-                clickDrop ? 'rotate-0' : 'rotate-180'
-              } transition-all`}
-            >
-              <TbCaretDownFilled />
-            </div>
-          </div>
-          <div
-            className="flexBetweenCenter w-24 py-1 px-2 border-[1px] border-solid border-gray rounded-sm"
-            onClick={() => setClickDrop((prev) => !prev)}
-          >
-            <Text value="구/군" type="s_regular" />
-            <div
-              className={`${
-                clickDrop ? 'rotate-0' : 'rotate-180'
-              } transition-all`}
-            >
-              <TbCaretDownFilled />
-            </div>
-          </div>
+          <DropDown defaultTitle="지역" />
+          <DropDown defaultTitle="구/군" />
         </div>
       </div>
       <Divider />

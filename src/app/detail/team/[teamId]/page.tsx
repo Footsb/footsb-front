@@ -165,7 +165,7 @@ const TeamDetail = () => {
           <div className="flex flex-col mt-5">
             <Text value="최근 경기" type="s_regular" />
             <ul className="py-4 w-full overflow-x-scroll scrollBarHide">
-              <div className="flex gap-4 pr-4 w-max">
+              <div className="flex gap-4 px-4 w-max">
                 {['win', 'draw', 'lose'].map((el) => {
                   return <MatchResultCard key={el} result={el} />;
                 })}

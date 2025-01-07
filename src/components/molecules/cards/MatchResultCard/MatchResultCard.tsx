@@ -1,5 +1,5 @@
-import { Text } from '@/components/atoms/texts';
 import React from 'react';
+import { Text } from '@/components/atoms/texts';
 import { GiGriffinShield } from 'react-icons/gi';
 
 interface Props {

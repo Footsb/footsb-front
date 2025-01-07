@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Cta } from '@/components/atoms';
 import ModalLayout from '@/components/atoms/Modal';
