@@ -5,8 +5,8 @@ import { Divider } from '@/components/atoms';
 import { IconInfo, Text } from '@/components/atoms/texts';
 import { Category, Level } from '@/components/atoms/tags';
 import { SubTitleBox } from '@/components/molecules';
-import { TeamCard } from '@/components/molecules/cards';
-import { PageLayout } from '@/components/organism';
+import { PageLayout } from '@/components/organism/common';
+import { MyTeamList } from '@/components/organism';
 
 const MyPage = () => {
   return (
@@ -54,25 +54,7 @@ const MyPage = () => {
         </div>
       </section>
       <Divider />
-      <section className="my-5">
-        <div className="pl-4">
-          <SubTitleBox title="내 팀" />
-        </div>
-        <ul className="p-4 w-full overflow-x-scroll scrollBarHide">
-          <div className="flex gap-4 pr-4 w-max">
-            {[1, 2, 3].map((el) => {
-              return <TeamCard key={el} />;
-            })}
-            <li className="flexCenter p-3 min-w-[240px] w-full h-[140px] rounded-md border-2 border-dashed border-gray">
-              <Text
-                value="팀 등록하기"
-                type="m_bold"
-                extraStyle="text-primary"
-              />
-            </li>
-          </div>
-        </ul>
-      </section>
+      <MyTeamList />
       <Divider />
     </PageLayout>
   );

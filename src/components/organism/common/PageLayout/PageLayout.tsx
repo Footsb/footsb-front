@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { SearchBox } from '@/components/molecules';
+
+import SearchBox from '../SearchBox';
 import { ToastContainer } from 'react-toastify';
 import Gnb from '../Gnb';
 

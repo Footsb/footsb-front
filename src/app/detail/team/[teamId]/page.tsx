@@ -1,32 +1,30 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 import Image from 'next/image';
-import { IoIosArrowBack, IoMdSettings } from 'react-icons/io';
+import { IoMdSettings } from 'react-icons/io';
 import { GiGriffinShield } from 'react-icons/gi';
 import { HiPencilAlt } from 'react-icons/hi';
 
-import { Cta, Divider } from '@/components/atoms';
+import { Carousel, Divider } from '@/components/atoms';
 import { IconInfo, Text } from '@/components/atoms/texts';
-import { PlayerCard, FormationCard } from '@/components/atoms/items';
+import { Back, Cta } from '@/components/atoms/buttons';
 import { Category } from '@/components/atoms/tags';
 import ModalLayout from '@/components/atoms/Modal';
-import { SubTitleBox } from '@/components/molecules';
+import { SelectBox, SubTitleBox } from '@/components/molecules';
 import { MatchCard, MatchResultCard } from '@/components/molecules/cards';
-import { PageLayout } from '@/components/organism';
+import { PageLayout } from '@/components/organism/common';
 import { TeamInfoModal } from '@/components/organism/modalContents';
 
-import { PlayerSimpleInfo } from '@/types/team';
+import { FormationInfo, PlayerSimpleInfo } from '@/types/team';
 import defaultImage from '@_assets/images/default.png';
 
 const TeamDetail = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [formationList, setFormationList] = useState<string[]>([]);
+  const [formationList, setFormationList] = useState<FormationInfo[]>([]);
   const [playerList, setPlayerList] = useState<PlayerSimpleInfo[]>([]);
 
-  const router = useRouter();
   // const isLogin = localStorage.getItem('footsbToken');
 
   const handleTeamInfo = () => {
@@ -36,12 +34,7 @@ const TeamDetail = () => {
   return (
     <PageLayout>
       <div className="flexBetweenCenter p-3">
-        <IoIosArrowBack
-          size={18}
-          onClick={() => {
-            router.back();
-          }}
-        />
+        <Back />
         <IoMdSettings size={18} />
       </div>
       <div className="relative h-[200px] w-full">
@@ -121,62 +114,18 @@ const TeamDetail = () => {
             <HiPencilAlt size={20} onClick={handleTeamInfo} />
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <div className="flex flex-col gap-3 h-[144px]">
-              <Text
-                value="주 포메이션"
-                type="s_regular"
-                extraStyle="text-center"
-              />
-              <div className="flex flex-col gap-2 h-full">
-                {formationList.length === 0 ? (
-                  <div className="flexCenter px-4 h-full border-dashed border-gray border-2 rounded-lg">
-                    <Text
-                      value={`설정한\n포메이션이\n없어요!`}
-                      type="s_regular"
-                      extraStyle="text-center whitespace-pre-wrap	leading-5"
-                    />
-                  </div>
-                ) : (
-                  formationList.map((list) => {
-                    return <FormationCard key={list} formation={list} />;
-                  })
-                )}
-              </div>
-            </div>
-            <div className="flex flex-col gap-3 h-[144px]">
-              <Text
-                value="키 플레이어"
-                type="s_regular"
-                extraStyle="text-center"
-              />
-              <div className="flex flex-col gap-2 h-full">
-                {playerList.length === 0 ? (
-                  <div className="flexCenter px-4 h-full border-dashed border-gray border-2 rounded-lg">
-                    <Text
-                      value={`설정한\n주요 선수가\n없어요!`}
-                      type="s_regular"
-                      extraStyle="text-center whitespace-pre-wrap	leading-5"
-                    />
-                  </div>
-                ) : (
-                  playerList.map(({ id, name, position }) => {
-                    return (
-                      <PlayerCard key={id} position={position} name={name} />
-                    );
-                  })
-                )}
-              </div>
-            </div>
+            <SelectBox title="주 포메이션" list={formationList} />
+            <SelectBox title="키 플레이어어" list={playerList} />
           </div>
           <div className="flex flex-col mt-5">
             <Text value="최근 경기" type="s_regular" />
-            <ul className="py-4 w-full overflow-x-scroll scrollBarHide">
-              <div className="flex gap-4 px-4 w-max">
-                {['win', 'draw', 'lose'].map((el) => {
-                  return <MatchResultCard key={el} result={el} />;
+            <Carousel>
+              <>
+                {['win', 'draw', 'lose', 'win', 'win'].map((el, idx) => {
+                  return <MatchResultCard key={idx} result={el} />;
                 })}
-              </div>
-            </ul>
+              </>
+            </Carousel>
           </div>
         </div>
         <Divider />

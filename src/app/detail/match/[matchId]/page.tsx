@@ -1,29 +1,22 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import { IoIosArrowBack } from 'react-icons/io';
 import { Text } from '@/components/atoms/texts';
-import { LightTeamInfo, PageLayout } from '@/components/organism';
+import { Back, Cta } from '@/components/atoms/buttons';
+import { LightTeamInfo } from '@/components/organism';
+import { PageLayout } from '@/components/organism/common';
 import { MatchOpponent } from '@/components/molecules/EmptyBox';
 import { MatchCard } from '@/components/molecules/cards';
-import { Cta } from '@/components/atoms';
 
 const MatchDetail = () => {
-  const router = useRouter();
   const [currentSide, setCurrentSide] = useState('HOME');
-  const hasOpponent = false;
+  const hasAway = false;
 
   return (
     <PageLayout>
       <div className="p-3">
-        <IoIosArrowBack
-          size={18}
-          onClick={() => {
-            router.back();
-          }}
-        />
+        <Back />
       </div>
       <MatchCard />
       <div className="flexCenter gap-4 my-4">
@@ -46,15 +39,12 @@ const MatchDetail = () => {
           }}
         />
       </div>
-      <div>
-        <LightTeamInfo side={currentSide} />
-        {/* {currentSide === 'HOME' ? (
-          <LightTeamInfo side="HOME" />
-        ) : hasOpponent ? (
-          <LightTeamInfo side="AWAY" />
+      <div className="p-4">
+        {currentSide === 'HOME' || hasAway ? (
+          <LightTeamInfo side={currentSide} />
         ) : (
           <MatchOpponent />
-        )} */}
+        )}
       </div>
     </PageLayout>
   );

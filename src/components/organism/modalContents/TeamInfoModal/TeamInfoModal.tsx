@@ -1,15 +1,16 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 
-import { Cta, Toast } from '@/components/atoms';
-import { FormationCard, PlayerCard } from '@/components/atoms/items';
+import { Toast } from '@/components/atoms';
+import { Cta } from '@/components/atoms/buttons';
+import { ChooseCard } from '@/components/atoms/items';
 import { Text } from '@/components/atoms/texts';
 import { FORMATION_LIST, PLAYER_LIST_TEST } from '@/constants/list';
-import { PlayerSimpleInfo } from '@/types/team';
+import { FormationInfo, PlayerSimpleInfo } from '@/types/team';
 
 interface Props {
-  formationList: string[];
+  formationList: FormationInfo[];
   playerList: PlayerSimpleInfo[];
-  setFormationList: Dispatch<SetStateAction<string[]>>;
+  setFormationList: Dispatch<SetStateAction<FormationInfo[]>>;
   setPlayerList: Dispatch<SetStateAction<PlayerSimpleInfo[]>>;
   close: () => void;
 }
@@ -22,18 +23,17 @@ const TeamInfoModal = ({
   close,
 }: Props) => {
   const [selectFormation, setSelectFormation] =
-    useState<string[]>(formationList);
+    useState<FormationInfo[]>(formationList);
   const [selectPlayer, setSelectPlayer] =
     useState<PlayerSimpleInfo[]>(playerList);
 
-  const toggleFormation = (formation: string) => {
-    if (selectFormation.includes(formation)) {
-      const newArr = [...selectFormation];
-      newArr.splice(selectFormation.indexOf(formation), 1);
+  const toggleFormation = (formation: FormationInfo) => {
+    if (selectFormation.filter((el) => el.id === formation.id).length > 0) {
+      const newArr = selectFormation.filter((el) => el.id !== formation.id);
       setSelectFormation(newArr);
     } else {
       if (selectFormation.length === 3) {
-        Toast('error', '3개 이상 등록할 수 없어요!');
+        Toast('error', '3명 이상 등록할 수 없어요!');
       } else {
         setSelectFormation((prev) => [...prev, formation]);
       }
@@ -71,14 +71,19 @@ const TeamInfoModal = ({
           />
           <div className="flex flex-col gap-2 pb-7 max-h-[220px] overflow-scroll scrollBarHide">
             {FORMATION_LIST.map((el) => {
-              const isSelected = selectFormation.includes(el);
+              const { id, formation } = el;
+
+              const isSelected =
+                selectFormation.filter((el) => el.id === id).length > 0;
 
               return (
-                <FormationCard
-                  key={el}
-                  formation={el}
+                <ChooseCard
+                  key={id}
+                  formation={formation}
                   type="modal"
-                  onSelect={toggleFormation}
+                  onSelect={() => {
+                    toggleFormation(el);
+                  }}
                   isSelected={isSelected}
                 />
               );
@@ -99,7 +104,7 @@ const TeamInfoModal = ({
                 selectPlayer.filter((el) => el.id === id).length > 0;
 
               return (
-                <PlayerCard
+                <ChooseCard
                   key={id}
                   name={name}
                   position={position}

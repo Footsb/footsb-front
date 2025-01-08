@@ -1,16 +1,18 @@
 import { Text } from '../../texts';
 
 interface Props {
-  position: string;
-  name: string;
-  isSelected?: boolean;
   type?: string;
+  position?: string;
+  name?: string;
+  formation?: string;
+  isSelected?: boolean;
   onSelect?: () => void;
 }
 
 const PlayerCard = ({
-  position,
-  name,
+  position = '',
+  name = '',
+  formation = '',
   isSelected = false,
   type = 'list',
   onSelect,
@@ -25,11 +27,15 @@ const PlayerCard = ({
     <div
       className={`${checkSelectStyle()} ${
         type === 'list' ? 'cursor-default' : 'cursor-pointer'
-      } flexBetweenCenter p-2`}
+      } flexCenter p-2 gap-5`}
       onClick={onSelect}
     >
-      <Text value={position} type="s_regular" />
-      <Text value={name} type="m_bold" />
+      {position && (
+        <div className="w-[32px] text-center">
+          <Text value={position} type="s_regular" />
+        </div>
+      )}
+      <Text value={name || formation} type="m_bold" />
     </div>
   );
 };

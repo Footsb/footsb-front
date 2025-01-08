@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Cta, Divider } from '@/components/atoms';
+import { Divider } from '@/components/atoms';
 import DropDown from '@/components/atoms/DropDown';
 import { FilterButton, RadioButton } from '@/components/atoms/items';
 import { Text } from '@/components/atoms/texts';
+import { Cta } from '@/components/atoms/buttons';
 
 interface Props {
   close: () => void;

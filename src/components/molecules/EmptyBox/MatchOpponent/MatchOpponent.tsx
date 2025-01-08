@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { Cta } from '@/components/atoms';
+import { Cta } from '@/components/atoms/buttons';
 import { Text } from '@/components/atoms/texts';
 
 const MatchOpponent = () => {
-  const isHomeTeam = true;
-
+  const hasOppList = false;
   return (
     <>
-      {isHomeTeam ? (
+      {hasOppList ? (
         <div>
           <Text value="매치 신청 리스트" type="l_bold" />
           <ul className="flex flex-col gap-4 my-4">
@@ -58,13 +57,13 @@ const MatchOpponent = () => {
           </div>
         </div>
       ) : (
-        <div className="flexCenter flex-col gap-6 h-full">
-          <Text value="현재 매칭된 팀이 없습니다" type="xl_bold" />
+        <div className="flexCenter flex-col gap-6 h-[300px] emptyBoxBorder">
+          <Text value="상대를 기다리고 있어요!" type="l_bold" />
           <Cta
             value="매칭 신청"
             style="solid"
             color="accent"
-            size="m"
+            size="s"
             clickAction={() => {}}
           />
         </div>

@@ -1,6 +1,6 @@
 import { FilterBox } from '@/components/molecules';
 import { MatchCard } from '@/components/molecules/cards';
-import { PageLayout } from '@/components/organism';
+import { PageLayout } from '@/components/organism/common';
 
 const Match = () => {
   return (

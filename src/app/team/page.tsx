@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 
-import { Cta } from '@/components/atoms';
+import { Cta } from '@/components/atoms/buttons';
 import ModalLayout from '@/components/atoms/Modal';
 import { TeamList } from '@/components/organism/listCard';
-import { PageLayout } from '@/components/organism';
+import { PageLayout } from '@/components/organism/common';
 import { TeamSearchFilter } from '@/components/organism/modalContents';
 
 const Team = () => {

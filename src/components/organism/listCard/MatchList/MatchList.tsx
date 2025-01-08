@@ -4,7 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 
 import { IconInfo, Text } from '@/components/atoms/texts';
-import { Cta } from '@/components/atoms';
+import { Cta } from '@/components/atoms/buttons';
 
 const MatchList = () => {
   const router = useRouter();

@@ -1,5 +1,4 @@
 'use client';
-``;
 
 import { useRouter } from 'next/navigation';
 
@@ -13,14 +12,19 @@ const MatchCard = () => {
   return (
     <>
       <li
-        className="flexCenter flex-col gap-1 px-3 py-5"
+        className="flexCenter flex-col gap-3 px-3"
         onClick={() => {
           router.push('/detail/match/1');
         }}
       >
-        <IconInfo icon="location">
-          <Text value={'중랑 구립 구장'} type="xs_regular" />
-        </IconInfo>
+        <div className="flex items-center justify-evenly w-full">
+          <IconInfo icon="location">
+            <Text value={'중랑 구립 구장'} type="xs_regular" />
+          </IconInfo>
+          <IconInfo icon="time">
+            <Text value={'2025. 01. 31'} type="xs_regular" />
+          </IconInfo>
+        </div>
         <div className="grid grid-cols-3 items-center gap-5">
           <div className="flex flex-col items-center gap-2">
             <GiGriffinShield size={36} cursor={'pointer'} color={'#DE3B40'} />

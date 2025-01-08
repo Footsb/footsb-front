@@ -50,6 +50,10 @@ body {
   @apply border-[1px] border-solid border-gray rounded-md;
 }
 
+.emptyBoxBorder {
+  @apply rounded-md border-2 border-dashed border-gray;
+}
+
 .scrollBarHide::-webkit-scrollbar {
   display: none;
 }

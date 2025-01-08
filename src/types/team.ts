@@ -3,3 +3,8 @@ export interface PlayerSimpleInfo {
   name: string;
   position: string;
 }
+
+export interface FormationInfo {
+  id: number;
+  formation: string;
+}
