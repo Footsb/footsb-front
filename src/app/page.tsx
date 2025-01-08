@@ -10,13 +10,14 @@ import {
   TeamCard,
   MatchCard,
 } from '@/components/molecules/cards';
+import { PageLayout } from '@/components/organism';
 
 const Home = () => {
   const router = useRouter();
 
   return (
-    <article className="pb-24">
-      <div className="p-4">
+    <PageLayout>
+      <section className="p-4">
         <div className="flexBetweenCenter">
           <SubTitleBox title="오늘의 매치" />
           <Cta
@@ -34,7 +35,7 @@ const Home = () => {
             return <MatchCard key={el} />;
           })}
         </ul>
-      </div>
+      </section>
 
       <div className="p-4">
         <SubTitleBox title="팀 찾기" />
@@ -45,8 +46,10 @@ const Home = () => {
         </ul>
       </div>
 
-      <div className="py-4 pl-4">
-        <SubTitleBox title="내 팀" />
+      <div className="py-4">
+        <div className="pl-4">
+          <SubTitleBox title="내 팀" />
+        </div>
         <ul className="p-4 w-full overflow-x-scroll scrollBarHide">
           <div className="flex gap-4 pr-4 w-max">
             {[1, 2, 3].map((el) => {
@@ -62,7 +65,7 @@ const Home = () => {
           </div>
         </ul>
       </div>
-    </article>
+    </PageLayout>
   );
 };
 

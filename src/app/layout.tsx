@@ -1,16 +1,12 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_KR, Oswald } from 'next/font/google';
-import { ToastContainer } from 'react-toastify';
-
-import { SearchBox } from '@/components/molecules';
-import { Gnb } from '@/components/organism';
-
 import './globals.css';
 
 const notoSansKr = Noto_Sans_KR({
   variable: '--noto-sans_KR-bold',
   subsets: ['latin'],
   fallback: ['system-ui'],
+  display: 'swap',
 });
 
 const oswald = Oswald({
@@ -18,6 +14,7 @@ const oswald = Oswald({
   style: 'normal',
   subsets: ['latin'],
   weight: '400',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -32,23 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" id="root">
-      <body
-        className={`${notoSansKr.variable} ${oswald.variable} relative max-w-[390px] min-w-[280px] mx-auto overscroll-none`}
-      >
-        <SearchBox />
-        <main>{children}</main>
-        <Gnb />
-        <ToastContainer
-          position="bottom-center"
-          autoClose={2000}
-          hideProgressBar={true}
-          closeButton={true}
-          rtl={false}
-          draggable
-          stacked
-          closeOnClick
-          theme="light"
-        />
+      <body className={`${notoSansKr.variable} ${oswald.variable}`}>
+        {children}
       </body>
     </html>
   );

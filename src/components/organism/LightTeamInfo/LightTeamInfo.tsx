@@ -28,7 +28,11 @@ const LightTeamInfo = ({ side }: Props) => {
           </div>
           <Text value={'한마음 FC'} type="xl_bold" extraStyle={'text-white'} />
         </div>
-        <Image src={defaultImage} alt="" layout="fill" objectFit="cover" />
+        <Image
+          src={defaultImage}
+          alt=""
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        />
       </div>
 
       <div className="flex items-center gap-2">

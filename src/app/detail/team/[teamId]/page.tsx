@@ -15,6 +15,7 @@ import { Category } from '@/components/atoms/tags';
 import ModalLayout from '@/components/atoms/Modal';
 import { SubTitleBox } from '@/components/molecules';
 import { MatchCard, MatchResultCard } from '@/components/molecules/cards';
+import { PageLayout } from '@/components/organism';
 import { TeamInfoModal } from '@/components/organism/modalContents';
 
 import { PlayerSimpleInfo } from '@/types/team';
@@ -33,7 +34,7 @@ const TeamDetail = () => {
   };
 
   return (
-    <article className="pb-24">
+    <PageLayout>
       <div className="flexBetweenCenter p-3">
         <IoIosArrowBack
           size={18}
@@ -53,7 +54,12 @@ const TeamDetail = () => {
           />
           <Divider />
         </div>
-        <Image src={defaultImage} alt="" layout="fill" objectFit="cover" />
+        <Image
+          src={defaultImage}
+          alt=""
+          priority
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        />
       </div>
       <section className="flex flex-col px-3">
         <div className="flexBetweenCenter mt-2">
@@ -191,7 +197,7 @@ const TeamDetail = () => {
           close={handleTeamInfo}
         />
       </ModalLayout>
-    </article>
+    </PageLayout>
   );
 };
 

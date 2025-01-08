@@ -1,17 +1,17 @@
-import React from 'react';
 import { FilterBox } from '@/components/molecules';
 import { MatchCard } from '@/components/molecules/cards';
+import { PageLayout } from '@/components/organism';
 
 const Match = () => {
   return (
-    <article className="pb-24">
+    <PageLayout>
       <FilterBox />
       <ul className="flex flex-col p-4">
         {[1, 2, 3].map((el) => {
           return <MatchCard key={el} />;
         })}
       </ul>
-    </article>
+    </PageLayout>
   );
 };
 

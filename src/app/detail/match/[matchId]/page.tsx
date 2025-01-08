@@ -1,14 +1,14 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 import { IoIosArrowBack } from 'react-icons/io';
 import { Text } from '@/components/atoms/texts';
-import { LightTeamInfo } from '@/components/organism';
+import { LightTeamInfo, PageLayout } from '@/components/organism';
 import { MatchOpponent } from '@/components/molecules/EmptyBox';
 import { MatchCard } from '@/components/molecules/cards';
 import { Cta } from '@/components/atoms';
-import { useState } from 'react';
 
 const MatchDetail = () => {
   const router = useRouter();
@@ -16,7 +16,7 @@ const MatchDetail = () => {
   const hasOpponent = false;
 
   return (
-    <article className="pb-24">
+    <PageLayout>
       <div className="p-3">
         <IoIosArrowBack
           size={18}
@@ -56,7 +56,7 @@ const MatchDetail = () => {
           <MatchOpponent />
         )} */}
       </div>
-    </article>
+    </PageLayout>
   );
 };
 

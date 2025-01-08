@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
 import { IoHomeOutline } from 'react-icons/io5';
@@ -9,21 +9,12 @@ import { BiFace, BiGroup } from 'react-icons/bi';
 import { Text } from '@/components/atoms/texts';
 
 const Gnb = () => {
-  const [isShow, setIsShow] = useState(true);
   const pathName = usePathname();
   const router = useRouter();
 
   const onClickNav = (path: string) => {
     router.push(`${path}`);
   };
-
-  useEffect(() => {
-    if (pathName.indexOf('sign') >= 0) {
-      setIsShow(false);
-    }
-  }, [pathName]);
-
-  if (!isShow) return;
 
   const currentMenu = () => {
     if (pathName === '/') return 'home';

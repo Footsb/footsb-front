@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Cta } from '@/components/atoms';
 import ModalLayout from '@/components/atoms/Modal';
 import { TeamList } from '@/components/organism/listCard';
+import { PageLayout } from '@/components/organism';
 import { TeamSearchFilter } from '@/components/organism/modalContents';
 
 const Team = () => {
@@ -15,7 +16,7 @@ const Team = () => {
   };
 
   return (
-    <article className="pb-24">
+    <PageLayout>
       <div className="flex flex-row-reverse p-2">
         <Cta
           value="조건 검색"
@@ -35,7 +36,7 @@ const Team = () => {
       <ModalLayout isOpen={isOpenModal} closeAction={closeFilterModal}>
         <TeamSearchFilter close={closeFilterModal} />
       </ModalLayout>
-    </article>
+    </PageLayout>
   );
 };
 
