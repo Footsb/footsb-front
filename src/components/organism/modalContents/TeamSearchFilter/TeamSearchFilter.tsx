@@ -1,9 +1,17 @@
 import { useState } from 'react';
 import { Divider } from '@/components/atoms';
-import DropDown from '@/components/atoms/DropDown';
 import { FilterButton, RadioButton } from '@/components/atoms/items';
 import { Text } from '@/components/atoms/texts';
 import { Cta } from '@/components/atoms/buttons';
+import { DropDown } from '@/components/molecules';
+
+import {
+  CITY_LIST,
+  DAY_LIST,
+  ETC_FILTER_LIST,
+  LOCATION_LIST,
+  TIME_LIST,
+} from '@/constants/filter';
 
 interface Props {
   close: () => void;
@@ -13,10 +21,23 @@ const TeamSearchFilter = ({ close }: Props) => {
   const [selectFilterList, setSelectFilterList] = useState<{
     [key: string]: string[];
   }>({
+    location: ['', ''],
     day: [],
     time: [],
     etc: [],
   });
+
+  const onSeletedLocation = (idx: number, value: string) => {
+    const newArr = [...selectFilterList.location];
+
+    if (idx === 0 && newArr[1] !== '') {
+      newArr[1] = '';
+    }
+
+    newArr[idx] = value;
+
+    setSelectFilterList((prev) => ({ ...prev, location: newArr }));
+  };
 
   const onClickFilterBtn = (key: string, value: string) => {
     const selectFilterArr = selectFilterList[key];
@@ -35,8 +56,21 @@ const TeamSearchFilter = ({ close }: Props) => {
       <div>
         <Text value="지역" type="m_regular" />
         <div className="flex gap-2 mt-4">
-          <DropDown defaultTitle="지역" />
-          <DropDown defaultTitle="구/군" />
+          <DropDown
+            idx={0}
+            list={LOCATION_LIST}
+            placeholder="시/도"
+            selectValue={selectFilterList.location[0]}
+            onSelect={onSeletedLocation}
+          />
+          <DropDown
+            idx={1}
+            list={CITY_LIST[selectFilterList.location[0]]}
+            placeholder="군/시"
+            selectValue={selectFilterList.location[1]}
+            disabled={selectFilterList.location[0] === ''}
+            onSelect={onSeletedLocation}
+          />
         </div>
       </div>
       <Divider />
@@ -116,11 +150,3 @@ const TeamSearchFilter = ({ close }: Props) => {
 };
 
 export default TeamSearchFilter;
-
-const DAY_LIST = ['월', '화', '수', '목', '금', '토', '일'];
-const TIME_LIST = ['6-12', '12-18', '18-24'];
-const ETC_FILTER_LIST = [
-  { id: 1, type: 'gender', title: ['남자만', '여자만', '혼성'] },
-  { id: 2, type: 'type', title: ['축구', '풋살'] },
-  { id: 3, type: 'member', title: ['팀원 모집 중'] },
-];

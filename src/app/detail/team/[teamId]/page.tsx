@@ -130,11 +130,13 @@ const TeamDetail = () => {
         </div>
         <Divider />
 
-        <div className="flex flex-col mt-4">
+        <div className="flex flex-col gap-4 mt-4">
           <SubTitleBox title="다가올 매치" />
-          <MatchCard />
-          <MatchCard />
-          <MatchCard />
+          <ul className="mt-4">
+            <MatchCard />
+            <MatchCard />
+            <MatchCard />
+          </ul>
         </div>
       </section>
       <ModalLayout isOpen={isOpenModal} closeAction={handleTeamInfo}>
