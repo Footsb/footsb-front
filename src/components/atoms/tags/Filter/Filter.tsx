@@ -1,26 +1,16 @@
 import React from 'react';
-import useHandleQuery from '@/hooks/useQuery';
-
-import { BsXCircleFill } from 'react-icons/bs';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 interface Props {
-  title: string;
-  queryKey: string;
+  value: string;
+  deleteAction: (value: string) => void;
 }
 
-const Filter = ({ title, queryKey }: Props) => {
-  const { deleteQuery } = useHandleQuery();
-
+const Filter = ({ value, deleteAction }: Props) => {
   return (
-    <div className="flex gap-1 items-center p-2 border-[#EEEDF2] border-2 border-solid rounded-lg text-sm leading-none">
-      {title}
-      <BsXCircleFill
-        size={12}
-        style={{ lineHeight: 0 }}
-        onClick={() => {
-          deleteQuery(queryKey, title);
-        }}
-      />
+    <div className="flex items-center gap-1 p-2 border-[1px] border-solid border-black rounded-xl text-sm font-medium leading-none">
+      {value}
+      <IoIosCloseCircleOutline onClick={() => deleteAction(value)} />
     </div>
   );
 };

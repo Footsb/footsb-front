@@ -14,7 +14,7 @@ const MatchCard = () => {
       <li
         className="flexCenter flex-col gap-3 px-3"
         onClick={() => {
-          router.push('/detail/match/1');
+          router.push('/match/detail/1');
         }}
       >
         <div className="flex items-center justify-evenly w-full">

@@ -15,7 +15,7 @@ const TeamList = () => {
       <li
         className="grid grid-cols-[64px_1fr] items-center gap-3 py-4"
         onClick={() => {
-          router.push('/detail/team/1');
+          router.push('/team/detail/1');
         }}
       >
         <div className="flexCenter p-2">

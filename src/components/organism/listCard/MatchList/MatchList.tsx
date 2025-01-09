@@ -48,7 +48,7 @@ const MatchList = () => {
         color="primary"
         size="s"
         clickAction={() => {
-          router.push('/detail/match/1');
+          router.push('/match/detail/1');
         }}
       />
     </li>

@@ -18,25 +18,29 @@ interface Props {
 }
 
 const TeamSearchFilter = ({ close }: Props) => {
+  const [curOpenDropDown, setCurOpenDropDown] = useState('');
+  const [selectDropdown, setSelectDropDown] = useState({
+    location: '',
+    city: '',
+  });
   const [selectFilterList, setSelectFilterList] = useState<{
     [key: string]: string[];
   }>({
-    location: ['', ''],
     day: [],
     time: [],
     etc: [],
   });
 
-  const onSeletedLocation = (idx: number, value: string) => {
-    const newArr = [...selectFilterList.location];
+  const toggleDropDown = (state: string) => {
+    setCurOpenDropDown(state);
+  };
 
-    if (idx === 0 && newArr[1] !== '') {
-      newArr[1] = '';
+  const onSeletedLocation = (name: string, value: string) => {
+    if (name === 'location' && selectDropdown.city !== '') {
+      setSelectDropDown(() => ({ [name]: value, city: '' }));
     }
 
-    newArr[idx] = value;
-
-    setSelectFilterList((prev) => ({ ...prev, location: newArr }));
+    setSelectDropDown((prev) => ({ ...prev, [name]: value }));
   };
 
   const onClickFilterBtn = (key: string, value: string) => {
@@ -57,18 +61,22 @@ const TeamSearchFilter = ({ close }: Props) => {
         <Text value="지역" type="m_regular" />
         <div className="flex gap-2 mt-4">
           <DropDown
-            idx={0}
+            name="location"
             list={LOCATION_LIST}
             placeholder="시/도"
-            selectValue={selectFilterList.location[0]}
+            selectValue={selectDropdown.location}
+            curDropDown={curOpenDropDown}
+            handleDropDown={toggleDropDown}
             onSelect={onSeletedLocation}
           />
           <DropDown
-            idx={1}
-            list={CITY_LIST[selectFilterList.location[0]]}
+            name="city"
+            list={CITY_LIST[selectDropdown.location]}
             placeholder="군/시"
-            selectValue={selectFilterList.location[1]}
-            disabled={selectFilterList.location[0] === ''}
+            selectValue={selectDropdown.city}
+            disabled={selectDropdown.location === ''}
+            curDropDown={curOpenDropDown}
+            handleDropDown={toggleDropDown}
             onSelect={onSeletedLocation}
           />
         </div>
@@ -108,7 +116,7 @@ const TeamSearchFilter = ({ close }: Props) => {
         </div>
       </div>
       <Divider />
-      <div>
+      {/* <div>
         <Text value="기타" type="m_regular" />
         {ETC_FILTER_LIST.map((list) => {
           return (
@@ -127,7 +135,7 @@ const TeamSearchFilter = ({ close }: Props) => {
             </form>
           );
         })}
-      </div>
+      </div> */}
 
       <div className="flexBetweenCenter mt-4">
         <Cta

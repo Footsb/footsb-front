@@ -13,7 +13,7 @@ const TeamCard = () => {
     <li
       className="flex flex-col justify-between p-3 min-w-[260px] w-full h-[140px] rounded-lg shadow-card"
       onClick={() => {
-        router.push('/detail/team/1');
+        router.push('/team/detail/1');
       }}
     >
       <div className="flexBetweenCenter">

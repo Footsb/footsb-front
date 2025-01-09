@@ -47,7 +47,30 @@ export const CITY_LIST: { [key: string]: string[] } = {
 export const DAY_LIST = ['월', '화', '수', '목', '금', '토', '일'];
 export const TIME_LIST = ['6-12', '12-18', '18-24'];
 export const ETC_FILTER_LIST = [
-  { id: 1, type: 'gender', title: ['남자만', '여자만', '혼성'] },
-  { id: 2, type: 'type', title: ['축구', '풋살'] },
-  { id: 3, type: 'member', title: ['팀원 모집 중'] },
+  {
+    id: 1,
+    name: 'gender',
+    list: [
+      { title: '남자', value: 'man' },
+      { title: '여자', value: 'woman' },
+      { title: '혼성', value: 'all' },
+    ],
+  },
+  {
+    id: 2,
+    name: 'type',
+    list: [
+      { title: '축구', value: 'soccer' },
+      { title: '풋살', value: 'futsal' },
+      { title: '모두', value: 'all' },
+    ],
+  },
+  {
+    id: 3,
+    name: 'needMember',
+    list: [
+      { title: '모집 중', value: 'yes' },
+      { title: '모집 중단', value: 'no' },
+    ],
+  },
 ];

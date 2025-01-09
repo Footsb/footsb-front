@@ -3,21 +3,30 @@ import React from 'react';
 interface Props {
   title: string;
   type: string;
-  queryKey?: string;
-  clickButton: (key: string, value: string) => void;
+  value: string;
+  selectValue: string;
+  clickButton: (name: string, value: string) => void;
 }
 
-const RadioButton = ({ title, type, queryKey = '', clickButton }: Props) => {
+const RadioButton = ({
+  title,
+  type,
+  value,
+  selectValue,
+  clickButton,
+}: Props) => {
   return (
     <label
       className="flex gap-1 items-center"
-      onClick={() => clickButton(queryKey, title)}
+      onClick={() => clickButton(type, value)}
     >
       <input
         type="radio"
         name={type}
         value={title}
-        className="border-2 border-solid border-gray"
+        checked={selectValue === value}
+        className="border-2 border-solid border-gray text-sm"
+        onChange={() => clickButton(type, value)}
       />
       {title}
     </label>

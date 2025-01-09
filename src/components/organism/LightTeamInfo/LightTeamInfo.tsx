@@ -64,7 +64,7 @@ const LightTeamInfo = ({ side }: Props) => {
           color="primary"
           size="s"
           clickAction={() => {
-            router.push('/detail/team/1');
+            router.push('/team/detail/1');
           }}
         />
       </div>

@@ -1,38 +1,42 @@
 'use client';
 
-import { MouseEvent, useState } from 'react';
+import { MouseEvent } from 'react';
 import { Text } from '@_components/atoms/texts';
 import { TbCaretDownFilled } from 'react-icons/tb';
 
 interface Props {
-  idx: number;
+  name: string;
   list: string[];
   placeholder: string;
   selectValue: string;
   disabled?: boolean;
-  onSelect: (idx: number, value: string) => void;
+  curDropDown: string;
+  handleDropDown: (state: string) => void;
+  onSelect: (name: string, value: string) => void;
 }
 
 const DropDown = ({
-  idx,
+  name,
   list,
   placeholder,
   selectValue,
   disabled = false,
+  curDropDown,
+  handleDropDown,
   onSelect,
 }: Props) => {
-  const [clickDrop, setClickDrop] = useState(false);
+  const isOpen = curDropDown === name;
 
   const onClickDropDown = () => {
     if (!disabled) {
-      setClickDrop((prev) => !prev);
+      handleDropDown(name);
     }
   };
 
   const onSelectItem = (e: MouseEvent<HTMLDivElement>, value: string) => {
     e.stopPropagation();
-    onSelect(idx, value);
-    onClickDropDown();
+    onSelect(name, value);
+    handleDropDown('');
   };
 
   return (
@@ -45,13 +49,11 @@ const DropDown = ({
         type="s_regular"
         extraStyle={`${disabled ? 'text-gray' : ''}`}
       />
-      <div
-        className={`${clickDrop ? 'rotate-0' : 'rotate-180'} transition-all`}
-      >
+      <div className={`${isOpen ? 'rotate-0' : 'rotate-180'} transition-all`}>
         <TbCaretDownFilled color={`${disabled ? 'gray' : ''}`} />
       </div>
-      {clickDrop && (
-        <div className="flex flex-col gap-3 absolute left-[-1px] right-[-1px] top-[30px] p-2 max-h-[150px] overflow-scroll bg-white border-[1px] border-solid border-gray rounded-sm">
+      {isOpen && (
+        <div className="flex flex-col gap-3 absolute left-[-1px] right-[-1px] top-[30px] p-2 max-h-[120px] overflow-scroll bg-white border-[1px] border-solid border-gray rounded-sm z-10">
           {list.map((list) => {
             return (
               <div key={list} onClick={(e) => onSelectItem(e, list)}>
